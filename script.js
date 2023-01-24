@@ -2,6 +2,7 @@ var divalfabet = document.getElementById("alfabet");
 var divimg = document.getElementById("img");
 var divpassword = document.getElementById("password");
 var deadScreen = document.getElementById("deadScreen");
+var winScreen = document.getElementById("winScreen");
 
 const upperCaseLetters = [];
 for (let i = 65; i <= 90; i++) {
@@ -97,6 +98,12 @@ const OnClick = (id)=>{
     litera.style.transform=""
     litera.style.opacity=0.5;
     litera.onclick = null;
+    
+    let isWin = CheckWin();
+    console.log(isWin)
+    if(isWin){
+        winScreen.style.display = "flex";
+    }
 }
 
 const NextDeadLvl = ()=>{
@@ -115,8 +122,19 @@ const NextDeadLvl = ()=>{
     if(num >= 8){
         deadScreen.style.display = "flex";
     }
+
 };
 
+const CheckWin=()=>{
+    let win = true;
+    for(let i = 0; i < hidePassword.length; i++){
+        if(hidePassword[i]==="-"){
+            win = false;
+            console.log(win+"    "+hidePassword[i])
+        }
+    }
+    return win;
+};
 
 
 resizeEvent()
