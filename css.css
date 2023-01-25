@@ -140,6 +140,7 @@ body{
     border-radius: 30px;
     background-color: rgb(40, 40, 40);
     border: 2px solid white;
+    border-color: white;
     padding: 0 10px;
 }
 #passButton{

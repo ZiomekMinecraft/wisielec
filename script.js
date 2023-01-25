@@ -1,8 +1,21 @@
-var divalfabet = document.getElementById("alfabet");
-var divimg = document.getElementById("img");
-var divpassword = document.getElementById("password");
-var deadScreen = document.getElementById("deadScreen");
-var winScreen = document.getElementById("winScreen");
+// Main Screen
+const divalfabet = document.getElementById("alfabet");
+const divimg = document.getElementById("img");
+const divpassword = document.getElementById("password");
+
+// Dead Screen
+const deadScreen = document.getElementById("deadScreen");
+const deadButton = document.getElementById("deadButton");
+
+// Win Screen
+const winScreen = document.getElementById("winScreen");
+const winButton = document.getElementById("winButton");
+
+// Password Screen
+const StartGameButton = document.getElementById("passButton");
+const PasswordInput = document.getElementById("hasloInput");
+const typePasswordScreen = document.getElementById("typePasswordScreen");
+
 
 const upperCaseLetters = [];
 for (let i = 65; i <= 90; i++) {
@@ -17,20 +30,91 @@ for(let i = 0; i<upperCaseLetters.length; i++){
 }
 document.getElementById("litery").innerHTML=allLethers;
 
-var password = "Lubie placki";
+var password = "";
 var hidePassword = "";
 
-for(let i=0; i<password.length;i++){
-    if(password[i]===" "){
-        hidePassword+=" "
-    }else{
-        hidePassword+="-"
+const hidePasswordFunction=()=>{
+    hidePassword = "";
+    for(let i=0; i<password.length;i++){
+        if(password[i]===" "){
+            hidePassword+=" ";
+        }else{
+            hidePassword+="-";
+        }
+        RefreshPassword()
     }
 }
 const RefreshPassword = () =>{
     divpassword.innerHTML=hidePassword;
-}
-RefreshPassword()
+};
+
+
+const setPassword=()=>{
+    password = PasswordInput.value;
+    PasswordInput.value = "";
+    password = password.toString().toUpperCase();
+    password = password.toString().replace("Ą", "A");
+    password = password.toString().replace("Ć", "C");
+    password = password.toString().replace("Ę", "E");
+    password = password.toString().replace("Ł", "L");
+    password = password.toString().replace("Ń", "N");
+    password = password.toString().replace("Ó", "O");
+    password = password.toString().replace("Ś", "S");
+    password = password.toString().replace("Ż", "Z");
+    password = password.toString().replace("Ź", "Z");
+
+    password = password.toString().replace("`", "");
+    password = password.toString().replace("~", "");
+    password = password.toString().replace("!", "");
+    password = password.toString().replace("@", "");
+    password = password.toString().replace("#", "");
+    password = password.toString().replace("$", "");
+    password = password.toString().replace("%", "");
+    password = password.toString().replace("^", "");
+    password = password.toString().replace("&", "");
+    password = password.toString().replace("*", "");
+    password = password.toString().replace("(", "");
+    password = password.toString().replace(")", "");
+    password = password.toString().replace("-", "");
+    password = password.toString().replace("_", "");
+    password = password.toString().replace("+", "");
+    password = password.toString().replace("=", "");
+    password = password.toString().replace("[", "");
+    password = password.toString().replace("]", "");
+    password = password.toString().replace("{", "");
+    password = password.toString().replace("}", "");
+    password = password.toString().replace("\\", "");
+    password = password.toString().replace("|", "");
+    password = password.toString().replace(";", "");
+    password = password.toString().replace(":", "");
+    password = password.toString().replace("'", "");
+    password = password.toString().replace("\"", "");
+    password = password.toString().replace(",", "");
+    password = password.toString().replace(".", "");
+    password = password.toString().replace("<", "");
+    password = password.toString().replace(">", "");
+    password = password.toString().replace("/", "");
+    password = password.toString().replace("?", "");
+    password = password.toString().replace("*", "");
+    
+    password = password.toString().replace("1", "");
+    password = password.toString().replace("2", "");
+    password = password.toString().replace("3", "");
+    password = password.toString().replace("4", "");
+    password = password.toString().replace("5", "");
+    password = password.toString().replace("6", "");
+    password = password.toString().replace("7", "");
+    password = password.toString().replace("8", "");
+    password = password.toString().replace("9", "");
+    password = password.toString().replace("0", "");
+    if(password.length==0){
+        PasswordInput.style.borderColor="red";
+        return;
+    }
+    hidePasswordFunction();
+    RefreshPassword();
+    typePasswordScreen.style.display="none";
+};
 
 
 password = password.toUpperCase()
@@ -43,12 +127,12 @@ function resizeEvent(){
     
 
     if(width>=800){
-        divalfabet.style.width = ((width)/2-32.5)+"px"
-        divimg.style.width = ((width)/2-32.5)+"px"
+        divalfabet.style.width = ((width)/2-33)+"px"
+        divimg.style.width = ((width)/2-33)+"px"
     }
     else{
-        divalfabet.style.width = (width-32.5)+"px"
-        divimg.style.width = (width-32.5)+"px"
+        divalfabet.style.width = (width-33)+"px"
+        divimg.style.width = (width-33)+"px"
     }
 
     width = divalfabet.style.width;
@@ -136,5 +220,11 @@ const CheckWin=()=>{
     return win;
 };
 
+const RestartLvl=()=>{
+    window.location.reload();
+};
 
+deadButton.addEventListener('click', RestartLvl);
+winButton.addEventListener('click', RestartLvl);
+StartGameButton.addEventListener('click', setPassword);
 resizeEvent()
