@@ -143,7 +143,7 @@ body{
     border-color: white;
     padding: 0 10px;
 }
-#passButton{
+#passButton, #passButtonRandom{
     width: 100px;
     height: 25px;
     cursor: pointer;
@@ -158,7 +158,16 @@ body{
     transform: scale(0.98);
     transition: all .2s ease-in-out;
 }
-#passButton:hover{
+#passButtonRandom{
+    width: max-content;
+    padding: 0 5px 2px;
+}
+#passButton:hover, #passButtonRandom:hover{
     opacity: 1;
     transform: scale(1);
+}
+#deadpass, #winpass{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 80%;
 }

@@ -15,6 +15,25 @@ const winButton = document.getElementById("winButton");
 const StartGameButton = document.getElementById("passButton");
 const PasswordInput = document.getElementById("hasloInput");
 const typePasswordScreen = document.getElementById("typePasswordScreen");
+const RandomGameButton = document.getElementById("passButtonRandom");
+
+// Random words
+var randomWords = ["abruptly", "absurd", "abyss", "affix", "askew", "avenue", "awkward", "axiom", "azure", "bagpipes", "bandwagon", 
+"banjo", "bayou", "beekeeper", "bikini", "blitz", "blizzard", "boggle", "bookworm", "boxcar", "boxful", "buckaroo", "buffalo", "buffoon", 
+"buxom", "buzzard", "buzzing", "buzzwords", "caliph", "cobweb", "cockiness", "croquet", "crypt", "curacao", "cycle", "daiquiri", "dirndl", 
+"disavow", "dizzying", "duplex", "dwarves", "embezzle", "equip", "espionage", "euouae", "exodus", "faking", "fishhook", "fixable", 
+"fjord", "flapjack", "flopping", "fluffiness", "flyby", "foxglove", "frazzled", "frizzled", "fuchsia", "funny", "gabby", "galaxy", 
+"galvanize", "gazebo", "giaour", "gizmo", "glowworm", "glyph", "gnarly", "gnostic", "gossip", "grogginess", "haiku", "haphazard", 
+"hyphen", "iatrogenic", "icebox", "injury", "ivory", "ivy", "jackpot", "jaundice", "jawbreaker", "jaywalk", "jazziest", "jazzy", "jelly", 
+"jigsaw", "jinx", "jiujitsu", "jockey", "jogging", "joking", "jovial", "joyful", "juicy", "jukebox", "jumbo", "kayak", "kazoo", "keyhole", 
+"khaki", "kilobyte", "kiosk", "kitsch", "kiwi", "klutz", "knapsack", "larynx", "lengths", "lucky", "luxury", "lymph", "marquis", 
+"matrix", "megahertz", "microwave", "mnemonic", "mystify", "naphtha", "nightclub", "nowadays", "numbskull", "nymph", "onyx", 
+"ovary", "oxidize", "oxygen", "pajama", "peekaboo", "phlegm", "pixel", "pneumonia", "polka", "pshaw", "psyche", "puppy", 
+"puzzling", "quartz", "queue", "quips", "quixotic", "quiz", "quorum", "razzmatazz", "rhubarb", "rickshaw", "schnapps", "scratch", 
+"shiv", "snazzy", "sphinx", "spritz", "squawk", "staff", "strength", "strengths", "stretch", "stronghold", "stymied", "subway", 
+"swivel", "syndrome", "thriftless", "thumbscrew", "topaz", "transcript", "transgress", "transplant", "triphthong", "twelfth", 
+"twelfths", "unknown"]
+
 
 
 const upperCaseLetters = [];
@@ -52,7 +71,9 @@ const RefreshPassword = () =>{
 const setPassword=()=>{
     password = PasswordInput.value;
     PasswordInput.value = "";
+    
     password = password.toString().toUpperCase();
+
     password = password.toString().replace("Ą", "A");
     password = password.toString().replace("Ć", "C");
     password = password.toString().replace("Ę", "E");
@@ -116,8 +137,12 @@ const setPassword=()=>{
     typePasswordScreen.style.display="none";
 };
 
+const setRandomPassword=()=>{
+    let randomnum = Math.floor(Math.random()*randomWords.length-1);
+    PasswordInput.value =  randomWords[randomnum];
+    setPassword();
+};
 
-password = password.toUpperCase()
 
 
 
@@ -184,8 +209,8 @@ const OnClick = (id)=>{
     litera.onclick = null;
     
     let isWin = CheckWin();
-    console.log(isWin)
     if(isWin){
+        document.getElementById("winpass").innerHTML=password;
         winScreen.style.display = "flex";
     }
 }
@@ -204,6 +229,7 @@ const NextDeadLvl = ()=>{
     }
     img.src = src
     if(num >= 8){
+        document.getElementById("deadpass").innerHTML=password;
         deadScreen.style.display = "flex";
     }
 
@@ -214,7 +240,6 @@ const CheckWin=()=>{
     for(let i = 0; i < hidePassword.length; i++){
         if(hidePassword[i]==="-"){
             win = false;
-            console.log(win+"    "+hidePassword[i])
         }
     }
     return win;
@@ -227,4 +252,5 @@ const RestartLvl=()=>{
 deadButton.addEventListener('click', RestartLvl);
 winButton.addEventListener('click', RestartLvl);
 StartGameButton.addEventListener('click', setPassword);
+RandomGameButton.addEventListener('click', setRandomPassword);
 resizeEvent()
