@@ -7,6 +7,7 @@ const createWindow = () => {
     height: 700,
     minHeight: 757,
     minWidth: 300,
+    icon: "icon.png",
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
