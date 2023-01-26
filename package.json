@@ -1,0 +1,22 @@
+{
+  "name": "wisielec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZiomekMinecraft/wisielec.git"
+  },
+  "author": "ZiomekMinecraft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZiomekMinecraft/wisielec/issues"
+  },
+  "homepage": "https://github.com/ZiomekMinecraft/wisielec#readme",
+  "dependencies": {
+    "electron": "^22.1.0"
+  }
+}
