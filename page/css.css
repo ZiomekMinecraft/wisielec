@@ -1,0 +1,173 @@
+body{
+    margin: 0;
+    background-color: black;
+    color: white;
+    cursor: default;
+}
+.tail{
+    height: max-content;
+    float: left;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#img>img{
+    width: 100%;
+    height: auto;
+}
+.litera{
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 8px;
+    cursor:pointer;
+    margin: 5px;
+    float: left;
+    transition: all .1s ease-in-out;
+}
+#password{
+    font-size: 45px;
+    text-align: center;
+}
+#deadScreen{
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+}
+#deadContent{
+    width: max-content;
+    margin-bottom: 20vh;
+    font-size: 50px;
+}
+#deadButton{
+    font-size: 25px;
+    text-align: center;
+    color: black;
+    --border-color: rgb(255, 255, 255);
+    text-shadow: 1px 0 var(--border-color), 0 1px var(--border-color), -1px 0 var(--border-color), 0 -1px var(--border-color);
+    width: 80%;
+    margin: 0 auto;
+    height: 30px;
+    background-color: black;
+    border: 2px solid rgb(125, 125, 125);
+    border-radius: 30px;
+    cursor: pointer;
+    transform: scale(0.98);
+    opacity: 0.95;
+    transition: all .2s ease-in-out;
+}
+#deadButton:hover{
+    opacity: 1;
+    transform: scale(1);
+}
+#deadButton:active{
+    transition: all .05s ease-in-out;
+    transform: scale(1.2);
+    background-color: beige;
+}
+#winScreen{
+    background-color: rgba(0,50,0,0.7);
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+}
+#winContent{
+    width: max-content;
+    margin-bottom: 20vh;
+    font-size: 50px;
+}
+#winButton{
+    font-size: 25px;
+    text-align: center;
+    color: black;
+    --border-color: rgb(255, 255, 255);
+    text-shadow: 1px 0 var(--border-color), 0 1px var(--border-color), -1px 0 var(--border-color), 0 -1px var(--border-color);
+    width: 80%;
+    margin: 0 auto;
+    height: 30px;
+    background-color: black;
+    border: 2px solid rgb(125, 125, 125);
+    border-radius: 30px;
+    cursor: pointer;
+    transform: scale(0.98);
+    opacity: 0.95;
+    transition: all .2s ease-in-out;
+}
+#winButton:hover{
+    opacity: 1;
+    transform: scale(1);
+}
+#winButton:active{
+    transition: all .05s ease-in-out;
+    transform: scale(1.2);
+    background-color: beige;
+}
+#typePasswordScreen{
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    align-items: center;
+    justify-items: center;
+}
+#typePasswordScreen>div{
+    width: max-content;
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+    font-size: 40px;
+    --border-color: rgb(255, 255, 255);
+    text-shadow: 1px 0 var(--border-color), 0 1px var(--border-color), -1px 0 var(--border-color), 0 -1px var(--border-color);
+}
+#hasloInput{
+    color: white;
+    width: 200px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: rgb(40, 40, 40);
+    border: 2px solid white;
+    border-color: white;
+    padding: 0 10px;
+}
+#passButton, #passButtonRandom{
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 23px;
+    border-radius: 25px;
+    border: 2px solid white;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    margin-top: 15px;
+    opacity: 0.9;
+    transform: scale(0.98);
+    transition: all .2s ease-in-out;
+}
+#passButtonRandom{
+    width: max-content;
+    padding: 0 5px 2px;
+}
+#passButton:hover, #passButtonRandom:hover{
+    opacity: 1;
+    transform: scale(1);
+}
+#deadpass, #winpass{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 80%;
+}
